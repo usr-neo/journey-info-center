@@ -17,7 +17,7 @@ const CountriesPage = () => {
 
   const filteredCountries = countries.filter((country) => {
     const matchesSearch = country.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesContinent = selectedContinent ? country.continent === selectedContinent : true;
+    const matchesContinent = selectedContinent && selectedContinent !== 'all' ? country.continent === selectedContinent : true;
     return matchesSearch && matchesContinent;
   });
 

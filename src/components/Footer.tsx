@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Mail, Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
+import { Globe, Mail, Instagram, Twitter, Youtube, Facebook, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -28,6 +28,9 @@ const Footer = () => {
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary">
                 <Youtube className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com/company/visaguide" className="text-muted-foreground hover:text-primary">
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -80,6 +83,10 @@ const Footer = () => {
               <a href="mailto:info@visaguide.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
                 <Mail className="h-4 w-4" />
                 <span>info@visaguide.com</span>
+              </a>
+              <a href="https://linkedin.com/company/visaguide" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+                <Linkedin className="h-4 w-4" />
+                <span>Connect on LinkedIn</span>
               </a>
               <p className="text-xs text-muted-foreground">
                 The information on this website is for general information purposes only. 
