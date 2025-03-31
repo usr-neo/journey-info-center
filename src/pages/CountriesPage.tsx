@@ -60,7 +60,7 @@ const CountriesPage = () => {
                 </div>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Continents</SelectItem>
+                <SelectItem value="all">All Continents</SelectItem>
                 {continents.map((continent) => (
                   <SelectItem key={continent} value={continent}>
                     {continent}
