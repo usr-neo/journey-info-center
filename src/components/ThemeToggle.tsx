@@ -2,6 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { Toggle } from '@/components/ui/toggle';
+import { 
+  Tooltip, 
+  TooltipContent, 
+  TooltipProvider, 
+  TooltipTrigger 
+} from '@/components/ui/tooltip';
 
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
@@ -33,14 +39,23 @@ const ThemeToggle = () => {
   };
 
   return (
-    <Toggle 
-      aria-label="Toggle dark mode" 
-      pressed={isDarkMode}
-      onPressedChange={toggleTheme}
-      className="ml-2"
-    >
-      {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-    </Toggle>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Toggle 
+            aria-label="Toggle dark mode" 
+            pressed={isDarkMode}
+            onPressedChange={toggleTheme}
+            className="ml-2"
+          >
+            {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+          </Toggle>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
