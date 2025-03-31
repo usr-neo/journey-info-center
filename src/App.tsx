@@ -10,6 +10,8 @@ import CountryDetailPage from "./pages/CountryDetailPage";
 import DocumentationPage from "./pages/DocumentationPage";
 import VideosPage from "./pages/VideosPage";
 import FAQPage from "./pages/FAQPage";
+import PassportRankingPage from "./pages/PassportRankingPage";
+import PassportDetailPage from "./pages/PassportDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
         <Route path="/documentation" element={<DocumentationPage />} />
         <Route path="/videos" element={<VideosPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/passport-ranking" element={<PassportRankingPage />} />
+        <Route path="/passport-ranking/:passportId" element={<PassportDetailPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

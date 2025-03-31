@@ -1,92 +1,62 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Globe, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import ThemeToggle from '@/components/ThemeToggle';
+import { Link, useLocation } from 'react-router-dom';
+import { BookText, Globe, MessageCircleQuestion, Video, Award } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [searchQuery, setSearchQuery] = React.useState('');
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Searching for:', searchQuery);
-    // Implement search functionality
+  const location = useLocation();
+  
+  const isActive = (path: string) => {
+    return location.pathname === path ? 'text-primary font-medium' : 'text-muted-foreground hover:text-primary';
   };
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="border-b sticky top-0 bg-background z-10">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2">
-            <Globe className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">VisaGuide</span>
+            <Globe className="h-6 w-6" />
+            <span className="font-bold">VisaGuide</span>
           </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link to="/countries" className={`text-sm ${isActive('/countries')}`}>
+              <span className="flex items-center gap-1">
+                <Globe className="h-4 w-4" />
+                <span>Countries</span>
+              </span>
+            </Link>
+            <Link to="/documentation" className={`text-sm ${isActive('/documentation')}`}>
+              <span className="flex items-center gap-1">
+                <BookText className="h-4 w-4" />
+                <span>Documentation</span>
+              </span>
+            </Link>
+            <Link to="/videos" className={`text-sm ${isActive('/videos')}`}>
+              <span className="flex items-center gap-1">
+                <Video className="h-4 w-4" />
+                <span>Videos</span>
+              </span>
+            </Link>
+            <Link to="/faq" className={`text-sm ${isActive('/faq')}`}>
+              <span className="flex items-center gap-1">
+                <MessageCircleQuestion className="h-4 w-4" />
+                <span>FAQ</span>
+              </span>
+            </Link>
+            <Link to="/passport-ranking" className={`text-sm ${isActive('/passport-ranking')}`}>
+              <span className="flex items-center gap-1">
+                <Award className="h-4 w-4" />
+                <span>Passport Ranking</span>
+              </span>
+            </Link>
+          </nav>
         </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium hover:text-primary">Home</Link>
-          <Link to="/countries" className="text-sm font-medium hover:text-primary">Countries</Link>
-          <Link to="/documentation" className="text-sm font-medium hover:text-primary">Documentation</Link>
-          <Link to="/videos" className="text-sm font-medium hover:text-primary">Videos</Link>
-          <Link to="/faq" className="text-sm font-medium hover:text-primary">FAQ</Link>
-        </div>
-
-        <div className="hidden md:flex items-center gap-4">
-          <form onSubmit={handleSearch} className="relative">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search countries..."
-              className="pl-8 w-[200px]"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </form>
+        <div className="flex items-center gap-4">
           <ThemeToggle />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <Button variant="ghost" size="icon" onClick={toggleMenu}>
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="container md:hidden py-4 animate-fade-in">
-          <form onSubmit={handleSearch} className="relative mb-4">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search countries..."
-              className="pl-8 w-full"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </form>
-          <div className="flex flex-col space-y-3">
-            <Link to="/" className="text-sm font-medium p-2 hover:bg-muted rounded-md" onClick={toggleMenu}>Home</Link>
-            <Link to="/countries" className="text-sm font-medium p-2 hover:bg-muted rounded-md" onClick={toggleMenu}>Countries</Link>
-            <Link to="/documentation" className="text-sm font-medium p-2 hover:bg-muted rounded-md" onClick={toggleMenu}>Documentation</Link>
-            <Link to="/videos" className="text-sm font-medium p-2 hover:bg-muted rounded-md" onClick={toggleMenu}>Videos</Link>
-            <Link to="/faq" className="text-sm font-medium p-2 hover:bg-muted rounded-md" onClick={toggleMenu}>FAQ</Link>
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   );
 };
 
