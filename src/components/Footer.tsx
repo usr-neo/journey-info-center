@@ -17,19 +17,15 @@ const Footer = () => {
               Your comprehensive guide to visa requirements around the world. Accurate, up-to-date information for travelers.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Facebook className="h-5 w-5" />
+              
+              
+              <a href="https://www.instagram.com/askvisaguide?igsh=MWlmbnJoZnRmaWQwdQ%3D%3D&utm_source=qr" className="text-muted-foreground hover:text-primary">
+                <Instagram className="" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
+              <a href="https://youtube.com/@ask-visaguide?si=oVdli36NOI7CUB6n" className="text-muted-foreground hover:text-primary">
                 <Youtube className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com/company/visaguide" className="text-muted-foreground hover:text-primary">
+              <a href="https://www.linkedin.com/company/visa-guide/" className="text-muted-foreground hover:text-primary">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -80,11 +76,11 @@ const Footer = () => {
           <div>
             <h3 className="font-medium mb-4">Contact Us</h3>
             <div className="space-y-3">
-              <a href="mailto:info@visaguide.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+              <a href="mailto:askvisaguide@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
                 <Mail className="h-4 w-4" />
-                <span>info@visaguide.com</span>
+                <span>askvisaguide@gmail.com</span>
               </a>
-              <a href="https://linkedin.com/company/visaguide" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+              <a href="https://www.linkedin.com/company/visa-guide/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
                 <Linkedin className="h-4 w-4" />
                 <span>Connect on LinkedIn</span>
               </a>
