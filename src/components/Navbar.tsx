@@ -2,9 +2,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookText, Globe, MessageCircleQuestion, Video, Award, FileText } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
-import { Switch } from './ui/switch';
 import { useEffect, useState } from 'react';
+import { Switch } from './ui/switch';
 
 const Navbar = () => {
   const location = useLocation();
