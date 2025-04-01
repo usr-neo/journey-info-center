@@ -16,27 +16,26 @@ import IndianPassportPage from "./pages/IndianPassportPage";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/countries" element={<CountriesPage />} />
-          <Route path="/country/:countryId" element={<CountryDetailPage />} />
-          <Route path="/documentation" element={<DocumentationPage />} />
-          <Route path="/videos" element={<VideosPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/passport-ranking" element={<PassportRankingPage />} />
-          <Route path="/passport-ranking/:passportId" element={<PassportDetailPage />} />
-          <Route path="/indian-passport" element={<IndianPassportPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <Toaster />
-      <Sonner />
-    </QueryClientProvider>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/countries" element={<CountriesPage />} />
+        <Route path="/country/:countryId" element={<CountryDetailPage />} />
+        <Route path="/documentation" element={<DocumentationPage />} />
+        <Route path="/videos" element={<VideosPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/passport-ranking" element={<PassportRankingPage />} />
+        <Route path="/passport-ranking/:passportId" element={<PassportDetailPage />} />
+        <Route path="/indian-passport" element={<IndianPassportPage />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </QueryClientProvider>
+);
 
 export default App;

@@ -14,6 +14,7 @@ const Index = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Searching for:', searchQuery);
+    // In a real application, this would navigate to search results
   };
 
   return (

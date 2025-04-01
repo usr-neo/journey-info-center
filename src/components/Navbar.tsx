@@ -2,9 +2,38 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookText, Globe, MessageCircleQuestion, Video, Award, FileText } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Switch } from './ui/switch';
 
 const Navbar = () => {
   const location = useLocation();
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  // Initialize theme from localStorage on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
   
   const isActive = (path: string) => {
     return location.pathname === path ? 'text-primary font-medium' : 'text-muted-foreground hover:text-primary';
@@ -58,21 +87,10 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <button
-            onClick={() => {
-              const isDark = document.documentElement.classList.contains('dark');
-              if (isDark) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-              } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-              }
-            }}
-            className="p-2 rounded-md bg-muted"
-          >
-            {document.documentElement.classList.contains('dark') ? 'Light' : 'Dark'} Mode
-          </button>
+          <div className="flex items-center gap-2">
+            <span className="text-sm">{isDarkMode ? 'Dark' : 'Light'}</span>
+            <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />
+          </div>
         </div>
       </div>
     </header>
