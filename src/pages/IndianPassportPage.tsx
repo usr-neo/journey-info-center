@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import IndianPassportRequirements from '@/components/IndianPassportRequirements';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { Passport, FileCheck, Clock } from 'lucide-react';
+import { FileCheck, Clock, Globe } from 'lucide-react';
 
 const IndianPassportPage = () => {
   return (
@@ -14,7 +14,7 @@ const IndianPassportPage = () => {
       
       <div className="container py-8">
         <div className="flex items-center gap-2 mb-4">
-          <Passport className="h-6 w-6 text-primary" />
+          <Globe className="h-6 w-6 text-primary" />
           <h1 className="text-3xl font-bold">Indian Passport Guide</h1>
         </div>
         
@@ -51,7 +51,7 @@ const IndianPassportPage = () => {
           <Card>
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
-                <Passport className="h-12 w-12 text-primary mb-4" />
+                <Globe className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-medium mb-2">Country-Specific Guides</h3>
                 <p className="text-muted-foreground">
                   Tailored information for Indian passport holders applying for visas to popular destinations worldwide.

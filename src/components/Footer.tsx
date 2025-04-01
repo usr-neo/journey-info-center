@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Mail, Instagram, Twitter, Youtube, Facebook, Linkedin, Passport } from 'lucide-react';
+import { Globe, Mail, Instagram, Twitter, Youtube, Facebook, Linkedin, FileText } from 'lucide-react';
 
 const Footer = () => {
   return (

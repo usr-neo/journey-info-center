@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookText, Globe, MessageCircleQuestion, Video, Award, Passport } from 'lucide-react';
+import { BookText, Globe, MessageCircleQuestion, Video, Award, FileText } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { Switch } from './ui/switch';
 import { useEffect, useState } from 'react';
@@ -81,7 +81,7 @@ const Navbar = () => {
             </Link>
             <Link to="/indian-passport" className={`text-sm ${isActive('/indian-passport')}`}>
               <span className="flex items-center gap-1">
-                <Passport className="h-4 w-4" />
+                <FileText className="h-4 w-4" />
                 <span>Indian Passport</span>
               </span>
             </Link>
