@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookText, Globe, MessageCircleQuestion, Video, Award, FileText } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const location = useLocation();
@@ -58,21 +59,7 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <button
-            onClick={() => {
-              const isDark = document.documentElement.classList.contains('dark');
-              if (isDark) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-              } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-              }
-            }}
-            className="p-2 rounded-md bg-muted"
-          >
-            {document.documentElement.classList.contains('dark') ? 'Light' : 'Dark'} Mode
-          </button>
+          <ThemeToggle />
         </div>
       </div>
     </header>

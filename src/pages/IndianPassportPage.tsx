@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import IndianPassportRequirements from '@/components/IndianPassportRequirements';
+import IndianPassportLinks from '@/components/IndianPassportLinks';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 import { FileCheck, Clock, Globe } from 'lucide-react';
@@ -22,6 +23,8 @@ const IndianPassportPage = () => {
           A comprehensive guide to visa requirements for Indian passport holders, with detailed information 
           on student visas, work permits, and skilled worker programs for popular destinations.
         </p>
+        
+        <IndianPassportLinks />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <Card>

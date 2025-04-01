@@ -1,13 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronLeft, Globe, AlertCircle, ExternalLink } from 'lucide-react';
+import { ChevronLeft, Globe, AlertCircle } from 'lucide-react';
 import { countries, Country } from '@/data/countries';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import VisaTypesTable from '@/components/VisaTypesTable';
 import VisaRequirementsCard from '@/components/VisaRequirementsCard';
 import ApplicationSteps from '@/components/ApplicationSteps';
+import CountryEmbassyLinks from '@/components/CountryEmbassyLinks';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -104,28 +105,7 @@ const CountryDetailPage = () => {
           <div className="lg:w-1/3">
             <div className="sticky top-20">
               <VisaRequirementsCard requirements={country.requirements} />
-              
-              <div className="mt-6 p-4 border rounded-lg">
-                <h3 className="text-lg font-medium mb-2 flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-primary" />
-                  <span>Official Embassy Website</span>
-                </h3>
-                <Separator className="mb-4" />
-                <p className="text-sm text-muted-foreground mb-4">
-                  Visit the official embassy website for the most up-to-date information and application forms.
-                </p>
-                <Button asChild variant="outline" className="w-full">
-                  <a 
-                    href={country.embassyLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <span>Visit Official Website</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
+              <CountryEmbassyLinks embassyLink={country.embassyLink} countryName={country.name} />
             </div>
           </div>
         </div>
