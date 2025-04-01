@@ -16,6 +16,7 @@ const initializeDarkMode = () => {
   }
 };
 
+// Execute theme initialization immediately
 initializeDarkMode();
 
 createRoot(document.getElementById("root")!).render(
