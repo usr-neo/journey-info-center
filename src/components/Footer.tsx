@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Mail, Instagram, Twitter, Youtube, Facebook, Linkedin } from 'lucide-react';
+import { Globe, Mail, Instagram, Twitter, Youtube, Facebook, Linkedin, Passport } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -17,8 +17,6 @@ const Footer = () => {
               Your comprehensive guide to visa requirements around the world. Accurate, up-to-date information for travelers.
             </p>
             <div className="flex space-x-4">
-              
-              
               <a href="https://www.instagram.com/askvisaguide?igsh=MWlmbnJoZnRmaWQwdQ%3D%3D&utm_source=qr" className="text-muted-foreground hover:text-primary">
                 <Instagram className="" />
               </a>
@@ -49,6 +47,12 @@ const Footer = () => {
               <li>
                 <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary">FAQ</Link>
               </li>
+              <li>
+                <Link to="/passport-ranking" className="text-sm text-muted-foreground hover:text-primary">Passport Ranking</Link>
+              </li>
+              <li>
+                <Link to="/indian-passport" className="text-sm text-muted-foreground hover:text-primary">Indian Passport Guide</Link>
+              </li>
             </ul>
           </div>
           
@@ -69,6 +73,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/country/schengen" className="text-sm text-muted-foreground hover:text-primary">Schengen Countries</Link>
+              </li>
+              <li>
+                <Link to="/country/germany" className="text-sm text-muted-foreground hover:text-primary">Germany</Link>
+              </li>
+              <li>
+                <Link to="/country/japan" className="text-sm text-muted-foreground hover:text-primary">Japan</Link>
               </li>
             </ul>
           </div>

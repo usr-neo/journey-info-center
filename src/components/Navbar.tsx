@@ -1,11 +1,40 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookText, Globe, MessageCircleQuestion, Video, Award } from 'lucide-react';
+import { BookText, Globe, MessageCircleQuestion, Video, Award, Passport } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import { Switch } from './ui/switch';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const location = useLocation();
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  // Initialize theme from localStorage on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
   
   const isActive = (path: string) => {
     return location.pathname === path ? 'text-primary font-medium' : 'text-muted-foreground hover:text-primary';
@@ -50,10 +79,19 @@ const Navbar = () => {
                 <span>Passport Ranking</span>
               </span>
             </Link>
+            <Link to="/indian-passport" className={`text-sm ${isActive('/indian-passport')}`}>
+              <span className="flex items-center gap-1">
+                <Passport className="h-4 w-4" />
+                <span>Indian Passport</span>
+              </span>
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <span className="text-sm">{isDarkMode ? 'Dark' : 'Light'}</span>
+            <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />
+          </div>
         </div>
       </div>
     </header>
